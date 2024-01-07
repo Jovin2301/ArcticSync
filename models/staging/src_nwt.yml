@@ -1,0 +1,29 @@
+sources:
+  - name: NWT
+    description: a clone of the Snowflake database
+    database: ASSIGNMENT2
+    schema: NWT
+
+    tables:
+      - name: CATEGORY
+        description: raw category table
+      - name: CUSTOMER
+        description: raw customer table
+      - name: EMPLOYEE
+        description: raw_employees table
+      - name: EMPLOYEETERRITORY
+      - name: ORDERS
+        columns:
+          - name: orderid
+            description: primary key for orders
+      - name: ORDER_DETAIL
+        description: raw_order_detail table
+      - name: PRODUCT
+        description: product table
+        columns:
+          - name: productID
+            description: primary key for product
+      - name: REGION
+      - name: SHIPPER
+      - name: SUPPLIER
+      - name: TERRITORY

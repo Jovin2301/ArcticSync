@@ -1,6 +1,6 @@
 {{ config (materialized='table')}}
 
-SELECT * FROM ASSIGNMENT2.NWT.EMPLOYEE
+SELECT * FROM {{ source('NWT', 'EMPLOYEE')}}
 
 /*UPDATE raw_employee
 SET reportsTo = 2
