@@ -1,5 +1,5 @@
 models:
-  - name: raw_orders
+  - name: raw_order
     columns:
       - name: ORDERID
         tests:
@@ -68,7 +68,7 @@ models:
               - 'Poland'
               - 'Norway'
 
-  - name: raw_order_detail
+  - name: raw_order_details
     columns:
       - name: ORDERID
         tests:
