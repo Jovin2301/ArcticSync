@@ -1,3 +1,3 @@
 {{ config (materialized='table')}}
 
-SELECT * FROM ASSIGNMENT2.NWT.EMPLOYEETERRITORY
+SELECT * FROM {{ source('NWT', 'EMPLOYEETERRITORY')}}

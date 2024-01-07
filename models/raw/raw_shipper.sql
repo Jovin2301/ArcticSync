@@ -1,3 +1,3 @@
 {{ config (materialized='table')}}
 
-SELECT * FROM ASSIGNMENT2.NWT.SHIPPER
+SELECT * FROM {{ source('NWT', 'SHIPPER')}}

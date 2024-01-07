@@ -1,6 +1,6 @@
 {{ config (materialized='table')}}
 
-SELECT * FROM ASSIGNMENT2.NWT."ORDER"
+SELECT * FROM {{source('NWT', 'ORDERS')}}
 
 /*UPDATE raw_order SET orderdate = DATEADD(YEAR, 1900, orderdate) -- add 1900 to dates with years 0096, 0097 and 0098
 WHERE orderdate < '1900-01-01';

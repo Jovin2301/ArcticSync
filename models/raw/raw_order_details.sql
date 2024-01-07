@@ -1,3 +1,3 @@
 {{ config (materialized='table')}}
 
-SELECT * FROM ASSIGNMENT2.NWT.ORDER_DETAIL
+SELECT * FROM {{ source('NWT', 'ORDER_DETAIL')}}

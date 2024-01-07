@@ -1,3 +1,3 @@
 {{ config (materialized='table')}}
 
-SELECT * FROM ASSIGNMENT2.NWT.CATEGORY
+SELECT * FROM {{ source('NWT', 'CATEGORY') }}
