@@ -1,0 +1,54 @@
+models:
+  - name: stg_kendrick
+    description: Data model for suppliers, products, and orders
+    columns:
+      - name: SUPPLIERID
+        description: The composite primary key for stg_kendrick
+      - name: COMPANYNAME
+        description: The name of the supplier's company
+      - name: CONTACTNAME
+        description: The supplier's contact name
+      - name: CONTACTITLE
+        description: The supplier's contact title
+      - name: CITY
+        description: City where the supplier is located
+      - name: COUNTRY
+        description: Country where the supplier is located
+      - name: PRODUCTID
+        description: The composite primary key for stg_kendrick
+      - name: PRODUCTNAME
+        description: The name of the product
+      - name: DISCONTINUED
+        description: '{{ doc("Discontinued")}}'
+      - name: REORDERLEVEL
+        description: The minimum quantity that should trigger a reorder
+      - name: UNITSINSTOCK
+        description: The number of units in stock
+      - name: ORDERID
+        description: The composite primary key for stg_kendrick
+      - name: ORDERDATE
+        description: The date when the order was placed
+      - name: REQUIREDDATE
+        description: The date where the order is required	to be handed to the customer
+      # - name: AVERAGE_UNIT_PRICE
+      #   description: The average unit price of the product
+      # - name: TOTAL_UNIT_PRICE
+      #   description: Total sum of product price
+      # - name: TOTAL_DISCOUNTED_PRICE
+      #   description: Total discounted product price
+      - name: REORDER
+        description: '{{ doc("Reorder")}}'
+      # - name: TOTAL_QUANTITY
+      #   description: The total number of quantity purchased
+      - name: CATEGORYID
+        description: The composite primary key for stg_kendrick
+      - name: CATEGORYNAME
+        description: The name of the different product category
+
+      - name: UNITPRICE
+        description: The price of each product
+      - name: QUANTITY
+        description: The number of product quantity
+      - name: DISCOUNTEDPRICE
+        description: The price of the product after discount
+
