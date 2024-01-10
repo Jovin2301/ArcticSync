@@ -51,4 +51,3 @@ models:
         description: The number of product quantity
       - name: DISCOUNTEDPRICE
         description: The price of the product after discount
-
