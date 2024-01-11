@@ -1,6 +1,5 @@
 {{ config(
    materialized='view',
-   schema='ASSIGNMENT2.NWT',
 ) }}
 
 select
