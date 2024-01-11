@@ -1,4 +1,8 @@
-{{ config (materialized='table')}}
+{{ config(
+   materialized='table',
+   schema='ASSIGNMENT2.NWT',
+   identifier='EMPLOYEE'
+) }}
 
 SELECT * FROM {{ source('NWT', 'EMPLOYEE')}}
 
