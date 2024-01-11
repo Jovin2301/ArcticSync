@@ -1,5 +1,7 @@
-{{ config (materialized='view'
-)}}
+{{ config(
+   materialized='view',
+   schema='ASSIGNMENT2.NWT'
+) }}
 
 select
 --from raw_employeeTerridtory
@@ -31,7 +33,27 @@ Country,
 HomePhone,
 Extension,
 Photo,
-Notes, ReportsTo, PhotoPath
+Notes, ReportsTo, PhotoPath,
+
+-- from raw_order
+CustomerId,
+OrderDate,
+RequiredDate,
+ShippedDate,
+ShipVia,
+Freight,
+ShipName,
+ShipAddress,
+ShipCity,
+ShipRegion,
+ShipPostalCode,
+ShipCountry,
+
+-- from raw_order_details
+ProductId,
+UnitPrice,
+Quantity,
+Discount
 
 from {{ ref('raw_employee') }} as e
 left join {{ ref('raw_employee_territory') }} as et
@@ -40,3 +62,7 @@ left join {{ ref('raw_region') }} as r
 on r.RegionId = t.RegionId
 left join {{ ref('raw_territory') }} as t
 on t.TerritoryId = et.Id
+left join {{ ref('raw_order')}} as o
+on o.EmployeeId = e.EmployeeId
+left join {{ ref('raw_order_details')}} as od
+on od.OrderId = o.OrderId
