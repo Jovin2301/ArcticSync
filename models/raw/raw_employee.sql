@@ -1,7 +1,6 @@
 {{ config(
    materialized='table',
-   schema='ASSIGNMENT2.NWT',
-   identifier='EMPLOYEE'
+   schema='ASSIGNMENT2.NWT'
 ) }}
 
 SELECT * FROM {{ source('NWT', 'EMPLOYEE')}}
