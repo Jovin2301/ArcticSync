@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: STG_JOVIN
+    description: Each row would present each of the products per order
+    columns:
+      - name: orderID
+        description: Composite primary key for stg_jovin
+      - name: productID
+        description: Composite primary key for stg_jovin
+      - name: unitPrice
+        description: The selling price when the order was placed, unitprice may have been updated due to the different time period
+      - name: quantity
+        description: The number of products that were purchased
+      - name: discount
+        description: The discount percentage given to the product for each of the orderID
+      - name: orderdate
+        description: The date when the order was placed
+      - name: requiredDate
+        description: The date whereby the order needs to be handed over to the customer
+      - name: reportsTo
+        description: Employees will report to the highest management of the country they work at
+      - name: categoryName
+        description: The category name of the products that were purchased by the customer
+      - name: costPrice
+        description: The price of a product that the company purchased
+      - name: productPrice
+        description: The price of the product that the customer purchased for
+      - name: productCost
+        description: The price of the product that the customer purchased for
