@@ -27,3 +27,22 @@ sources:
       - name: SHIPPER
       - name: SUPPLIER
       - name: TERRITORY
+
+      - name: FRESH_ORDERS
+        description: fresh orders to be appended into ORDERS table
+        columns:
+          - name: ORDERID
+            description: primary key for FRESH_ORDERS
+            tests:
+              - unique
+              - not_null
+
+
+      - name: FRESH_ORDER_DETAIL
+        description: fresh orders details to be appended into ORDERS details table
+        columns:
+          - name: ORDERID
+            description: composite key for FRESH_ORDERDETAIL
+          - name: PRODUCTID
+            description: composite key for FRESH_ORDERDETAIL
+      
