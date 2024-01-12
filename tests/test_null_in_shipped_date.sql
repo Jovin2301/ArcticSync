@@ -1,2 +1,3 @@
-select ASSIGNMENT2.NWT.Raw_ORDER
+select * FROM 
+NWT.raw_order
 WHERE SHIPPEDDATE IS NULL
