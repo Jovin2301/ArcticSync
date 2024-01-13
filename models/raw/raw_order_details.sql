@@ -2,7 +2,7 @@
 -- -- {{ config (materialized='table')}}
 -- =======
 -- {{ config(
---    materialized='table',
+--    materialized='table'
 --    schema='ASSIGNMENT2.NWT'
 -- ) }}
 -- >>>>>>> 70358637c8d023cf905c3340f2b09a0963368665
