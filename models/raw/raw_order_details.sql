@@ -1,8 +1,15 @@
--- {{ config (materialized='table')}}
+-- <<<<<<< HEAD
+-- -- {{ config (materialized='table')}}
+-- =======
+-- {{ config(
+--    materialized='table',
+--    schema='ASSIGNMENT2.NWT'
+-- ) }}
+-- >>>>>>> 70358637c8d023cf905c3340f2b09a0963368665
 
 -- SELECT * FROM {{ source('NWT', 'ORDER_DETAIL')}}
 
-
+{{ config (materialized='table')}}
 
 {{ config(materialized='incremental', unique_key='ORDERID') }}
 
