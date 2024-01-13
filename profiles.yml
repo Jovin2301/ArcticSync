@@ -1,0 +1,14 @@
+# profiles.yml
+
+ADO_Assignment_final:
+  target: Asg2
+  outputs:
+    Asg2:
+      type: snowflake
+      account: qd77687.ap-southeast-1
+      user: groupaccount1
+      password: Groupaccount1
+      database: ASSIGNMENT2
+      warehouse: NWT_WAREHOUSE
+      schema: NWT
+      role: ACCOUNTADMIN
