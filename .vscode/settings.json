@@ -1,0 +1,23 @@
+{
+    "sqltools.connections": [
+        {
+            "authenticator": "SNOWFLAKE",
+            "ocspOptions": {
+                "ocspFailOpen": true
+            },
+            "snowflakeOptions": {
+                "clientSessionKeepAlive": true,
+                "clientSessionKeepAliveHeartbeatFrequency": 3600,
+                "schema": "NWT"
+            },
+            "previewLimit": 50,
+            "driver": "Snowflake",
+            "name": "Asg2",
+            "account": "qd77687.ap-southeast-1",
+            "username": "groupaccount1",
+            "password": "Groupaccount1",
+            "database": "ASSIGNMENT2",
+            "warehouse": "NWT_WAREHOUSE"
+        }
+    ]
+}
