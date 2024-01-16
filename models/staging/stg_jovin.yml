@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: STG_JOVIN
+  - name: stg_jovin
     description: Each row would present each of the products per order
     columns:
       - name: orderID

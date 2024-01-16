@@ -45,16 +45,12 @@ picture,
 
 FROM
 {{ ref ('raw_order')}} as o
-
 LEFT JOIN {{ ref('raw_order_details')}} as d
 ON o.orderID = d.orderID
-
 LEFT JOIN {{ ref('raw_product')}} as p
 ON d.productID = p.productID
-
 LEFT JOIN {{ ref('raw_category')}} as c
 ON p.categoryID = c.categoryID
-
 LEFT JOIN {{ ref('raw_employee')}} as e
 ON  o.employeeID = e.employeeID
 
