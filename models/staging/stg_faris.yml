@@ -1,0 +1,54 @@
+sources:
+  - name: NWT_FARIS
+    description: a clone of the NWT Database
+    database: ASSIGNMENT2
+    schema: NWT_FARIS
+    tables:
+      - name: CUSTOMER
+        description: Source Customer Table
+      - name: "ORDER"
+        description: Source Order Table
+      - name: ORDER_DETAIL
+        description: Source Order Detail Table
+
+models:
+  - name: stg_faris
+    description: Staging View of the Tables used
+    columns:
+      - name: SHIPCOUNTRY
+        description: Country to which the order should be shipped to, string type.
+      - name: SHIPCITY
+        description: City to which the order should be shipped to, string type.
+      - name: SHIPREGION
+        description: "Region which the order should be shipped to, string type. "
+      - name: SHIPPOSTALCODE
+        description: Postal Code of the order to ship to, string type.
+      - name: SHIPADDRESS
+        description: Address to ship the order to, string type.
+      - name: ADDRESS
+        description: Address of the customer, string type.
+      - name: CITY
+        description: City of the customer, string type.
+      - name: REGION
+        description: Region of the customer, string type.
+      - name: POSTALCODE
+        description: Postal Code of the customer, string type.
+      - name: COUNTRY
+        description: Country of the customer, string type.
+      - name: ORDERDATE
+        description: Date of the order, in datetime.
+      - name: SHIPPEDDATE
+        description: Date of the shipment in datetime.
+      - name: REQUIREDDATE
+        description: Date the order is required to be delivered by, datetime type.
+      - name: SHIPNAME
+        description: Name of the person or company to whom the order should be shipped
+          to, string type.
+      - name: COMPANYNAME
+        description: Name of the customer's company, string type.
+      - name: CONTACTNAME
+        description: Name of the primary contact person, string type.
+      - name: CONTACTTITLE
+        description: Title of the primary contact person, string type.
+      - name: CUSTOMERID
+        description: Unique customer identifier, also used for merging tables. String type.
