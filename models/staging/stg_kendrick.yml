@@ -1,6 +1,3 @@
-
-<<<<<<< Updated upstream
-=======
 models:
   - name: stg_kendrick
     description: Data model for suppliers, products, and orders
