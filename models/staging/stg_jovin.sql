@@ -38,6 +38,7 @@ picture,
 
 -- additional calculation
 ((d.unitPrice * (1-discount) * quantity) + freight) as productPrice, -- total cost for each of the product at the time of purchase
+<<<<<<< Updated upstream
 
 (p.unitPrice * quantity * (1-discount)) as totalSales -- the price of per product 
 
@@ -47,6 +48,12 @@ picture,
 
 FROM
 ASSIGNMENT2.NWT.raw_order as o
+=======
+(p.unitPrice * quantity * (1-discount)) as totalSales, -- the price of per product 
+((d.unitPrice - UnitCost) * quantity * (1-discount)) as profitMargin
+
+FROM ASSIGNMENT2.NWT.raw_order as o
+>>>>>>> Stashed changes
 LEFT JOIN ASSIGNMENT2.NWT.raw_order_details as d
 ON o.orderID = d.orderID
 LEFT JOIN ASSIGNMENT2.NWT.raw_product as p
