@@ -74,7 +74,7 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('raw_orders')
+              to: ref('raw_order')
               field: ORDERID
       - name: PRODUCTID
         tests:

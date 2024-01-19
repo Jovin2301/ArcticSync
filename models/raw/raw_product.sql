@@ -1,7 +1,7 @@
-{{ config(
-   materialized='table',
-   schema='ASSIGNMENT2.NWT'
-) }}
-
+-- USE SCHEMA NWT
+{{ config(materialized='table') }}
 
 SELECT * FROM {{ source('NWT', 'PRODUCT')}}
+
+--select * from raw_product
+

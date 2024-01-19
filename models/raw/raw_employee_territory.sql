@@ -1,3 +1,3 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 SELECT * FROM {{ source('NWT', 'EMPLOYEETERRITORY')}}
