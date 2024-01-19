@@ -57,7 +57,7 @@ FROM
 LEFT JOIN
   {{ ref('raw_product') }} as p ON s.supplierid = p.supplierid
 LEFT JOIN
-  {{ ref('raw_orderdetail') }} as od ON p.productid = od.productid
+  {{ ref('raw_order_details') }} as od ON p.productid = od.productid
 LEFT JOIN
   {{ ref('raw_order') }} as o ON od.orderid = o.orderid -- Join the "order" table
 LEFT JOIN

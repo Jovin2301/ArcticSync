@@ -20,7 +20,7 @@ models:
       - name: PRODUCTNAME
         description: The name of the product
       - name: DISCONTINUED
-        description: '{{ doc("Discontinued")}}'
+        description: '{{ doc("discontinued")}}'
       - name: REORDERLEVEL
         description: The minimum quantity that should trigger a reorder
       - name: UNITSINSTOCK
