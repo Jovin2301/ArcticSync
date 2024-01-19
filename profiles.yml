@@ -1,9 +1,9 @@
 # profiles.yml
 
 ADO_Assignment_final:
-  target: Asg2
+  target: dev
   outputs:
-    Asg2:
+    dev:
       type: snowflake
       account: qd77687.ap-southeast-1
       user: groupaccount1

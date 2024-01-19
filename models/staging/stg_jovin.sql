@@ -24,8 +24,8 @@ productName,
 p.unitPrice -- the current pricing of the product
 
 --from raw_employee
-lastName, 
-firstName, 
+lastname, 
+firstname, 
 title, 
 titleOfCourtesy,
 photo, 
@@ -38,28 +38,22 @@ picture,
 
 -- additional calculation
 ((d.unitPrice * (1-discount) * quantity) + freight) as productPrice, -- total cost for each of the product at the time of purchase
-<<<<<<< HEAD
+
 (p.unitPrice * quantity * (1-discount)) as totalSales -- the price of per product 
-=======
-(p.unitPrice * quantity * (1-discount)) as totalSales,-- the price of per product 
->>>>>>> 5b737518a6c39a8076b66dd40d637698d1d23877
+
 -- ((d.unitPrice - unitCost) * quantity * (1-discount)) as profitMargin, 
 
 
 
 FROM
-{{ ref ('raw_order')}} as o
-
-LEFT JOIN {{ ref('raw_order_details')}} as d
+ASSIGNMENT2.NWT.raw_order as o
+LEFT JOIN ASSIGNMENT2.NWT.raw_order_details as d
 ON o.orderID = d.orderID
-
-LEFT JOIN {{ ref('raw_product')}} as p
+LEFT JOIN ASSIGNMENT2.NWT.raw_product as p
 ON d.productID = p.productID
-
-LEFT JOIN {{ ref('raw_category')}} as c
+LEFT JOIN ASSIGNMENT2.NWT.raw_category as c
 ON p.categoryID = c.categoryID
-
-LEFT JOIN {{ ref('raw_employee')}} as e
+LEFT JOIN ASSIGNMENT2.NWT.raw_employee as e
 ON  o.employeeID = e.employeeID
 
 --select * from stg_jovin

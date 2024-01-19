@@ -1,6 +1,3 @@
-{{ config(
-   materialized='table',
-   schema='ASSIGNMENT2.NWT'
-) }}
+{{ config(materialized='view') }}
 
 SELECT * FROM {{ source('NWT', 'EMPLOYEETERRITORY')}}
