@@ -3,7 +3,7 @@ CREATE TABLE FRESH_PRODUCT
 (
    ListPrice INT
   ,UnitCost INT
-  ,Discontinued VARCHAR
+  ,Discontinued VARCHAR(3)
   ,CategoryName VARCHAR
   ,companyName VARCHAR
 );
