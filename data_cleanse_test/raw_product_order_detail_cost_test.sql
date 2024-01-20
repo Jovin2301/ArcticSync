@@ -1,12 +1,12 @@
-WITH product_unit_cost AS (
-    SELECT UnitCost
-    FROM {{ ref('raw_product') }}
+with productcost as (
+    select UnitCost
+    from {{ ref('raw_product') }}
 ),
-order_detail_unit_price AS (
-    SELECT UnitPrice
-    FROM {{ ref('raw_order_details') }}
+orderdetailcost AS (
+    select UnitPrice
+    from {{ ref('raw_order_details') }}
 )
-SELECT *
-FROM product_unit_cost
-CROSS JOIN order_detail_unit_price
-WHERE product_unit_cost.UnitCost < order_detail_unit_price.UnitPrice
+select *
+from productcost
+cross join orderdetailcost
+where productcost.UnitCost < orderdetailcost.UnitPrice
