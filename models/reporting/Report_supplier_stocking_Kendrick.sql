@@ -1,6 +1,7 @@
 -- scatter Plot for Units in Stock vs. Total Reorders
 -- to check the supplier is doing well in supplying and 
 -- whether the company see a potential selling point on their products (when x and y increase)
+{{ config(  materialized='table') }}
 SELECT 
     contactName, 
     contactTitle,

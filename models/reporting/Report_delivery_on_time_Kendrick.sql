@@ -1,5 +1,6 @@
 -- a line chart to show the different percentage of on time delivery across the different year 
 -- to allow NWT have a guage on the tardiness of different periods by suppliers and categories
+{{ config(  materialized='table') }}
 SELECT
   supplierid,
   companyName,
