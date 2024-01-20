@@ -6,14 +6,14 @@ SELECT
     PRODUCTID,
     QUANTITY,
     DISCOUNT,
-    ORDERDATE,
+    orderDate,
     REQUIREDDATE, 
     PRODUCTNAME,
     CATEGORYNAME, 
     PRODUCTPRICE,
     PRODUCTCOST,
     PHOTOPATH
-FROM {{ ref('stg_jovin') }}
+FROM stg_jovin--{{ ref('stg_jovin') }}
 GROUP BY 
     ORDERID,
     PRODUCTID,
