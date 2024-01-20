@@ -1,0 +1,7 @@
+select 
+EMPLOYEEID,
+FIRSTNAME,
+SHIPCOUNTRY,
+SUM(OrderPrice) AS RevenueByCountry
+FROM {{ ref('stg_markell') }}
+GROUP BY EMPLOYEEID, FIRSTNAME, SHIPCOUNTRY
