@@ -1,6 +1,7 @@
 /*Trying to fix the raw_test.yml test case where we replace order date that is
 earlier than 1900, to 1900 */
 
+-- MERGING UPDATES FOR ORDER DATE
 merge into raw_order
 using (
   select ORDERID, DATEADD(YEAR, 1900, orderdate) as orderdate2
@@ -11,6 +12,7 @@ on raw_order.ORDERID = src.ORDERID
 when matched then
   update set raw_order.orderdate = src.orderdate2;
 
+-- MERGING UPDATES FOR REQUIRED DATE
 merge into raw_order
 using (
   select ORDERID, DATEADD(YEAR, 1900, requireddate) as requireddate2
@@ -21,6 +23,7 @@ on raw_order.ORDERID = src.ORDERID
 when matched then
   update set raw_order.requireddate = src.requireddate2;
 
+-- MERGING UPDATES FOR SHIPPED DATE
 merge into raw_order
 using (
   select ORDERID, DATEADD(YEAR, 1900, shippeddate) as shippeddate2
@@ -31,6 +34,6 @@ on raw_order.ORDERID = src.ORDERID
 when matched then
   update set raw_order.shippeddate = src.shippeddate2;
 
-update raw_order
-set shippeddate = '1900-01-01'
-where shippeddate is null;
+-- update raw_order
+-- set shippeddate = '1900-01-01'
+-- where shippeddate is null;
