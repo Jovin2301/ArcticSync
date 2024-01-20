@@ -30,3 +30,7 @@ using (
 on raw_order.ORDERID = src.ORDERID
 when matched then
   update set raw_order.shippeddate = src.shippeddate2;
+
+update raw_order
+set shippeddate = '1900-01-01'
+where shippeddate is null;
