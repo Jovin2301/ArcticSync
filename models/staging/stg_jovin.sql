@@ -39,7 +39,7 @@ picture,
 -- additional calculation
 ((d.unitPrice * (1-discount) * quantity) + freight) as productPrice, -- total cost for each of the product at the time of purchase
 
-(p.unitPrice * quantity * (1-discount)) as totalSales, -- the price of per product 
+(d.unitPrice * quantity * (1-discount)) as totalSales, -- the price of per product 
 
 ((d.unitPrice - unitCost) * quantity * (1-discount)) as profitMargin
 
