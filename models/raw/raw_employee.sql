@@ -6,4 +6,4 @@ SELECT * FROM {{ source('NWT', 'EMPLOYEE')}}
 SET reportsTo = 2
 WHERE reportsTo = 'NULL' AND title = 'Vice President Sales'
 
-select lastname from raw_employee*/
+select * from raw_employee*/
