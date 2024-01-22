@@ -1,0 +1,12 @@
+WITH productcost AS (
+    SELECT DISTINCT UnitCost
+    FROM {{ ref('raw_product') }}
+),
+orderdetailcost AS (
+    SELECT DISTINCT UnitPrice
+    FROM {{ ref('raw_order_details') }}
+)
+SELECT *
+FROM productcost
+CROSS JOIN orderdetailcost
+WHERE productcost.UnitCost < orderdetailcost.UnitPrice
