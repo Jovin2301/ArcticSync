@@ -10,3 +10,8 @@ SELECT CATEGORYID, COUNT(*)
 FROM raw_category
 GROUP BY CATEGORYID
 HAVING COUNT(*) > 1;
+
+SELECT DISTINCT * FROM {{ source('NWT', 'CATEGORY') }}
+CREATE TABLE raw_category AS
+SELECT DISTINCT * FROM raw_category;
+ALTER TABLE raw_category ADD UNIQUE (categoryID);
