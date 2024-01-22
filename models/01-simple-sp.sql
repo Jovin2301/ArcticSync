@@ -4,3 +4,5 @@ CREATE PROCEDURE SelectAllEmployees
 AS
 SELECT * FROM Employee
 GO;
+
+EXEC SelectAllEmployees
