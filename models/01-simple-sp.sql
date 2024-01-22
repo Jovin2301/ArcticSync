@@ -8,7 +8,7 @@ CREATE OR REPLACE PROCEDURE GetOrderDetails(orderId STRING)
 AS
 $$
     // Use parameterized query to avoid SQL injection
-    var sql_command = "SELECT * FROM Orders WHERE ORDERID = :1;";
+    var sql_command = "SELECT * FROM RAW_ORDER WHERE ORDERID = :1;";
     
     // we now use a parameterised query, by creating a statement
     var statement1 = snowflake.createStatement({
