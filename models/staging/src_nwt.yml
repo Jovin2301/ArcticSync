@@ -30,6 +30,7 @@ sources:
       - name: SUPPLIER
         description: raw supplier table
       - name: TERRITORY
+        description: raw territory table
 
       - name: FRESH_ORDERS
         description: fresh orders to be appended into ORDERS table
