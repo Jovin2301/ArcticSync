@@ -64,4 +64,4 @@ ON t.RegionId = r.RegionId
 LEFT JOIN {{ ref('raw_order') }} o 
 ON e.EmployeeId = o.EmployeeId
 LEFT JOIN {{ ref('raw_order_details') }} od 
-ON o.OrderId = od.OrderId;
+ON o.OrderId = od.OrderId
