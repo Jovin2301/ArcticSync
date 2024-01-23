@@ -1,3 +1,7 @@
 USE ASSIGNMENT2.NWT
-ALTER TABLE ASSIGNMENT2.NWT.RAW_ORDER
-ALTER COLUMN SHIPPEDDATE SET NULL AS '1970-01-01 00:00:00';
+merge into PRODUCT as p
+using FRESH_PRODUCT as fp
+on p.ProductID = fp.ProductID
+when MATCHED then
+  update set p.UnitCost = fp.UnitCost
+  where p.UnitCost is null
