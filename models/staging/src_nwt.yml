@@ -19,14 +19,18 @@ sources:
       - name: ORDER_DETAIL
         description: raw_order_detail table
       - name: PRODUCT
-        description: product table
+        description: raw product table
         columns:
           - name: productID
             description: primary key for product
       - name: REGION
+        description: raw region table
       - name: SHIPPER
+        description: raw shipper table
       - name: SUPPLIER
+        description: raw supplier table
       - name: TERRITORY
+        description: raw territory table
 
       - name: FRESH_ORDERS
         description: fresh orders to be appended into ORDERS table
