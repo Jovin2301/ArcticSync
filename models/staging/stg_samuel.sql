@@ -54,14 +54,14 @@ UnitPrice,
 Quantity,
 Discount
 
-from {{ ref('raw_employee') }} as e
-left join {{ ref('raw_employee_territory') }} as et
-on e.EmployeeId = et.EmployeeId
-left join {{ ref('raw_region') }} as r
-on r.RegionId = t.RegionId
-left join {{ ref('raw_territory') }} as t
-on t.TerritoryId = et.Id
-left join {{ ref('raw_order')}} as o
-on o.EmployeeId = e.EmployeeId
-left join {{ ref('raw_order_details')}} as od
-on od.OrderId = o.OrderId
+FROM {{ ref('raw_employee') }} e
+LEFT JOIN {{ ref('raw_employee_territory') }} et 
+ON e.EmployeeId = et.EmployeeId
+LEFT JOIN {{ ref('raw_territory') }} t 
+ON et.TerritoryId = t.TerritoryId
+LEFT JOIN {{ ref('raw_region') }} r 
+ON t.RegionId = r.RegionId
+LEFT JOIN {{ ref('raw_order') }} o 
+ON e.EmployeeId = o.EmployeeId
+LEFT JOIN {{ ref('raw_order_details') }} od 
+ON o.OrderId = od.OrderId;
