@@ -1,7 +1,3 @@
-USE ASSIGNMENT2.NWT;
-merge into PRODUCT as p
-using FRESH_PRODUCT as fp
-on p.ProductID = fp.ProductID
-when MATCHED then
-  update set p.UnitCost = fp.UnitCost
-  where p.UnitCost is null;
+UPDATE ASSIGNMENT2.NWT.RAW_ORDER;
+SET SHIPPEDDATE = '1970-01-01 00:00:00'
+WHERE SHIPPEDDATE IS NULL;
