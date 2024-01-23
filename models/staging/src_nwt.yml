@@ -28,6 +28,7 @@ sources:
       - name: SHIPPER
         description: raw shipper table
       - name: SUPPLIER
+        description: raw supplier table
       - name: TERRITORY
 
       - name: FRESH_ORDERS
