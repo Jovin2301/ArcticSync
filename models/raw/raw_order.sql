@@ -16,9 +16,11 @@ UPDATE raw_order
 SET SHIPPEDDATE = '1970-01-01 00:00:00'
 WHERE SHIPPEDDATE is null
 
-select * from raw_employee where reportsTo = 'null'
+select * from raw_order where SHIPPEDDATE is null
 
 select * from raw_order*/
+
+
 {{ config (materialized='table')}}
 
 {{ config(materialized='incremental', unique_key='ORDERID') }}
