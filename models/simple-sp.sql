@@ -8,6 +8,8 @@ CREATE OR REPLACE PROCEDURE GetOrderDetails(orderId STRING)
     EXECUTE AS CALLER
 AS
 $$
+    var capturedOrderId = orderId;  // Capture orderId in a separate variable
+
     try {
         // Use a parameterized query to avoid SQL injection
         var sql_command = "SELECT * FROM RAW_ORDER WHERE ORDERID = :orderId";
@@ -15,7 +17,7 @@ $$
         // Use the same name in the binds array
         var statement1 = snowflake.createStatement({
             sqlText: sql_command,
-            binds: { orderId: orderId }  // Use an object with a named parameter
+            binds: { orderId: capturedOrderId }  // Use the captured variable with the same name
         });
 
         // Executing the statement and fetch results
@@ -28,7 +30,7 @@ $$
     } catch (err) {
         // Log the error specifically, providing details
         var errorMessage = err.message || 'Error message not available';
-        snowflake.execute("INSERT INTO error_log (error_message) VALUES (:1, :2)", [orderId, errorMessage]);
+        snowflake.execute("INSERT INTO error_log (error_message, order_id) VALUES (:1, :2)", [errorMessage, capturedOrderId]);
         // Rethrow the error, propagating it to the caller
         throw err;
     }
