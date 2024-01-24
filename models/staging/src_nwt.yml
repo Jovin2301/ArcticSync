@@ -83,7 +83,19 @@ sources:
               relationship_type: self-referencing
           - name: PHOTOPATH
             description: file path of the employee's photo
+
       - name: EMPLOYEETERRITORY
+        description: raw_employee_territory table
+        columns: 
+          - name: EMPLOYEEID
+            description: primary key for employees
+          - name: TERRITORYID
+            description: foreign key for territory
+            foreign_key:
+              to_table: TERRITORY
+              to_column: TERRITORYID
+              relationship_type: many-to-many
+
       - name: ORDERS
         columns:
           - name: orderid
