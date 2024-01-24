@@ -7,6 +7,15 @@ sources:
     tables:
       - name: CATEGORY
         description: raw category table
+        columns:
+          - name: CATEGORYID
+            description: primary key for category
+          - name: CATEGORYNAME
+            description: name of the category
+          - name: DESCRIPTION
+            description: description of the category
+          - name: PICTURE
+            description: category picture (binary data)
       - name: CUSTOMER
         description: raw customer table
       - name: EMPLOYEE
