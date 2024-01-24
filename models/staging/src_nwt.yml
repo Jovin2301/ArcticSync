@@ -77,6 +77,10 @@ sources:
             description: additional notes about the employee
           - name: REPORTSTO
             description: ID of the employee's supervisor (foreign key)
+            foreign_key:
+              to_table: EMPLOYEE
+              to_column: EMPLOYEEID
+              relationship_type: self-referencing
           - name: PHOTOPATH
             description: file path of the employee's photo
       - name: EMPLOYEETERRITORY
