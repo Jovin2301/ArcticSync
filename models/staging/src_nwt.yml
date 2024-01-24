@@ -172,10 +172,31 @@ sources:
             to_table: SUPPLIER
               to_column: SUPPLIERID
               relationship_type: one-to-one
-              
+          - name: CATEGORYID`
+            description: identifier of the category (foreign key) the product belongs to
+            to_table: CATEGORY
+              to_column: CATEGORYID
+              relationship_type: one-to-one
+          - name: QUANTITYPERUNIT
+            description: quantity of the product per unit
+          - name: UNITPRICE
+            description: price per unit of the product in USD
+            to_table: ORDER_DETAIL
+              to_column: UNITPRICE
+              relationship_type: one-to-one
+          - name: UNITSINSTOCK
+            description: number of units in stock
+          - name: UNITSONORDER
+            description: number of units on order
+          - name: REORDERLEVEL
+            description: minimum quantity that should trigger a reorder
+          - name: DISCONTINUED
+            description: indicates with a 1, if the product has been discontinued
+
 
       - name: REGION
         description: raw region table
+        
       - name: SHIPPER
         description: raw shipper table
       - name: SUPPLIER
