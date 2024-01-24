@@ -61,6 +61,24 @@ sources:
             description: employee's address
           - name: CITY
             description: city where the employee is located
+          - name: REGION
+            description: region where the employee is located
+          - name: POSTALCODE
+            description: postal code of the employee's location
+          - name: COUNTRY
+            description: country where the employee is located
+          - name: HOMEPHONE
+            description: employee's home phone number
+          - name: EXTENSION
+            description: employee's phone extension
+          - name: PHOTO
+            description: employee's photo (binary data)
+          - name: NOTES
+            description: additional notes about the employee
+          - name: REPORTSTO
+            description: ID of the employee's supervisor (foreign key)
+          - name: PHOTOPATH
+            description: file path of the employee's photo
       - name: EMPLOYEETERRITORY
       - name: ORDERS
         columns:
