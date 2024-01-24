@@ -12,12 +12,13 @@ $$
         // we can use a parameterized query, 
         //avoid SQL injection
         var sql_command = "SELECT * FROM RAW_ORDER WHERE ORDERID = :orderId";
-        
-        // we create a statement with the parameterised query
+
+        // Use the same name in the binds array
         var statement1 = snowflake.createStatement({
             sqlText: sql_command,
-            binds: [orderId]
+            binds: { orderId: orderId }  // Use an object with named parameter
         });
+
         
         //executing the statement and fetch results
         var resultSet1 = statement1.execute();
