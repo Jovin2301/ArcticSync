@@ -26,13 +26,14 @@ $$
         return result;
 
     } catch (err) {
+        // Log the error specifically, providing details
         var errorMessage = err.message || 'Error message not available';
-        snowflake.execute("INSERT INTO error_log (error_message) VALUES (:1)", [errorMessage]);
-
+        snowflake.execute("INSERT INTO error_log (error_message) VALUES (:1, :2)", [orderId, errorMessage]);
         // Rethrow the error, propagating it to the caller
         throw err;
     }
 $$;
+
 CALL GetOrderDetails('10248');
 
 
