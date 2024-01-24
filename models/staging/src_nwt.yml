@@ -252,7 +252,7 @@ sources:
             description: description of the territory
           - name: REGIONID
             description: identifier of the region to which the territory belongs (foreign key)
-              foreign_key:
+            foreign_key:
               to_table: REGION
               to_column: REGIONID
               relationship_type: one-to-one
