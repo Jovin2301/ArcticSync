@@ -154,6 +154,11 @@ sources:
             to_table: PRODUCT
               to_column: UNITPRICE
               relationship_type: one-to-one
+          - name: QUANTITY
+            description: number of units being ordered
+          - name: DISCOUNT
+            description: the discount percentage applied to the price per unit
+          
 
             
       - name: PRODUCT
