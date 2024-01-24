@@ -159,13 +159,21 @@ sources:
           - name: DISCOUNT
             description: the discount percentage applied to the price per unit
           
-
             
       - name: PRODUCT
         description: raw product table
         columns:
-          - name: productID
+          - name: PRODUCTID
             description: primary key for product
+          - name: PRODUCTNAME
+            description: name of the product
+          - name: SUPPLIERID
+            description: identifier of the suppler (foreign key)
+            to_table: SUPPLIER
+              to_column: SUPPLIERID
+              relationship_type: one-to-one
+              
+
       - name: REGION
         description: raw region table
       - name: SHIPPER
