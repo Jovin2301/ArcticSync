@@ -94,7 +94,7 @@ sources:
             foreign_key:
               to_table: TERRITORY
               to_column: TERRITORYID
-              relationship_type: many-to-many
+              relationship_type: one-to-one
 
       - name: ORDERS
         columns:
