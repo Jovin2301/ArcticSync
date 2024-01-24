@@ -172,11 +172,13 @@ sources:
             description: name of the product
           - name: SUPPLIERID
             description: identifier of the suppler (foreign key)
+            foreign_key:
               to_table: SUPPLIER
               to_column: SUPPLIERID
               relationship_type: one-to-one
           - name: CATEGORYID`
             description: identifier of the category (foreign key) the product belongs to
+            foreign_key:
               to_table: CATEGORY
               to_column: CATEGORYID
               relationship_type: one-to-one
@@ -184,6 +186,7 @@ sources:
             description: quantity of the product per unit
           - name: UNITPRICE
             description: price per unit of the product in USD
+            foreign_key:
               to_table: ORDER_DETAIL
               to_column: UNITPRICE
               relationship_type: one-to-one
@@ -249,6 +252,7 @@ sources:
             description: description of the territory
           - name: REGIONID
             description: identifier of the region to which the territory belongs (foreign key)
+              foreign_key:
               to_table: REGION
               to_column: REGIONID
               relationship_type: one-to-one
