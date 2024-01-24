@@ -11,7 +11,7 @@ $$
     try {
         // we can use a parameterized query, 
         //avoid SQL injection
-        var sql_command = "SELECT * FROM RAW_ORDER WHERE ORDERID = :1";
+        var sql_command = "SELECT * FROM RAW_ORDER WHERE ORDERID = :orderId";
         
         // we create a statement with the parameterised query
         var statement1 = snowflake.createStatement({
@@ -33,6 +33,7 @@ $$
         throw err;
     }
 $$;
+CALL GetOrderDetails('1');
 
 
 
