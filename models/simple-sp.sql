@@ -28,8 +28,9 @@ $$
         return result;
 
     } catch (err) {
-        // we log the error specifically
-        snowflake.execute("INSERT INTO error_log (error_message) VALUES (:1)", [err.message]);
+        // Log the error specifically
+        snowflake.execute("INSERT INTO error_log (error_message) VALUES (:1)", [err.message || 'Error message not available']);
+
         // rethrow the error, propagating it to the caller
         throw err;
     }
