@@ -147,6 +147,7 @@ sources:
             description: primary key for ORDER DETAIL
           - name: PRODUCTID
             description: product unique identifier (foreign key)
+            foreign_key:
               to_table: PRODUCT
               to_column: PRODUCTID
               relationship_type: one-to-one
