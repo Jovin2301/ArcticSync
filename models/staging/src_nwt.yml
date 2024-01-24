@@ -196,9 +196,15 @@ sources:
 
       - name: REGION
         description: raw region table
-        
+        columns:
+          - name: REGIONID
+            description: primary key for region
+          - name: REGIONDESCRIPTION
+            description: description of the region
+
       - name: SHIPPER
         description: raw shipper table
+        
       - name: SUPPLIER
         description: raw supplier table
       - name: TERRITORY
