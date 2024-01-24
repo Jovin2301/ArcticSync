@@ -123,6 +123,20 @@ sources:
             to_table: SHIPPER
               to_column: SHIPPERID
               relationship_type: one-to-one
+          - name: FREIGHT
+            description: freight cost of shipping
+          - name: SHIPNAME
+            description: name of the person or company to whom the order should be shipped
+          - name: SHIPADDRESS
+            description: address to which the order should be shipped
+          - name: SHIPCITY
+            description: city to which the order should be shipped
+          - name: SHIPREGION
+            description: region to which the order should be shipped
+          - name: SHIPPOSTALCODE
+            description: postal code to which the order should be shipped
+          - name: SHIPCOUNTRY
+            description: country to which the order should be shipped
 
 
       - name: ORDER_DETAIL
