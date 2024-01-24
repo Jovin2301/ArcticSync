@@ -120,7 +120,7 @@ sources:
             description: date when the order was shipped
           - name: SHIPVIA
             description: id of the shipping company (foreign key), used for the order
-            to_table: SHIPPER
+              to_table: SHIPPER
               to_column: SHIPPERID
               relationship_type: one-to-one
           - name: FREIGHT
