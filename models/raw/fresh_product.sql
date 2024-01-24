@@ -16,5 +16,6 @@ SET p.UNITCOST = (
     SELECT MAX(fp.UnitCost)
     FROM fresh_product fp
     WHERE p.productid = fp.productid
+      AND fp.UnitCost IS NOT NULL  -- Add this condition
 )
 WHERE p.UNITCOST IS NULL;
