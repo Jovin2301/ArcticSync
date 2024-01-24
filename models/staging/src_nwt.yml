@@ -106,6 +106,12 @@ sources:
               to_table: CUSTOMER
               to_column: CUSTOMERID
               relationship_type: one-to-one
+          - name: EMPLOYEEID
+            description: id of the employee processing the order (foreign key)
+            foreign_key:
+              to_table: EMPLOYEE
+              to_column: EMPLOYEEID
+              relationship_type: many-to-many
 
 
       - name: ORDER_DETAIL
