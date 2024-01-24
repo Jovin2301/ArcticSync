@@ -18,6 +18,28 @@ sources:
             description: category picture (binary data)
       - name: CUSTOMER
         description: raw customer table
+        columns: 
+          - name: CUSTOMERID
+            description: primary key for customer
+          - name: COMPANYNAME
+            description: name of the customer's company
+          - name: CONTACTNAME
+            description: name of the primary contact person
+          - name: ADDRESS
+            description: customer's address
+          - name: CITY
+            description: city where the customer is located
+          - name: REGION
+            description: region where the customer is located
+          - name: POSTALCODE
+            description: postal code of the customer's location
+          - name: COUNTRY
+            description: country where the customer is located
+          - name: PHONE
+            description: customer's phone number
+          - name: FAX
+            description: customer's fax number
+            
       - name: EMPLOYEE
         description: raw_employees table
       - name: EMPLOYEETERRITORY
