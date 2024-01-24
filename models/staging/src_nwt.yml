@@ -141,6 +141,21 @@ sources:
 
       - name: ORDER_DETAIL
         description: raw_order_detail table
+        columns: 
+          - name: ORDERID
+            description: primary key for ORDER DETAIL
+          - name: PRODUCTID
+            description: product unique identifier (foreign key)
+            to_table: PRODUCT
+              to_column: PRODUCTID
+              relationship_type: one-to-one
+          - name: UNITPRICE
+            description: price per unit of product, at time when the order was placed (USD - discount not included)
+            to_table: PRODUCT
+              to_column: UNITPRICE
+              relationship_type: one-to-one
+
+            
       - name: PRODUCT
         description: raw product table
         columns:
