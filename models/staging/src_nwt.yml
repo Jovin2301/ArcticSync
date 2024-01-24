@@ -7,22 +7,173 @@ sources:
     tables:
       - name: CATEGORY
         description: raw category table
+        columns:
+          - name: CATEGORYID
+            description: primary key for category
+          - name: CATEGORYNAME
+            description: name of the category
+          - name: DESCRIPTION
+            description: description of the category
+          - name: PICTURE
+            description: category picture (binary data)
       - name: CUSTOMER
         description: raw customer table
+        columns: 
+          - name: CUSTOMERID
+            description: primary key for customer
+          - name: COMPANYNAME
+            description: name of the customer's company
+          - name: CONTACTNAME
+            description: name of the primary contact person
+          - name: ADDRESS
+            description: customer's address
+          - name: CITY
+            description: city where the customer is located
+          - name: REGION
+            description: region where the customer is located
+          - name: POSTALCODE
+            description: postal code of the customer's location
+          - name: COUNTRY
+            description: country where the customer is located
+          - name: PHONE
+            description: customer's phone number
+          - name: FAX
+            description: customer's fax number
+            
       - name: EMPLOYEE
         description: raw_employees table
+        columns:
+          - name: EMPLOYEEID
+            description: primary key of the employee
+          - name: LASTNAME
+            description: last name of the employee
+          - name: FIRSTNAME
+            description: first name of the employee
+          - name: TITLE
+            description: job title of the employee
+          - name: TITLEOFCOURTESY
+            description: courtesy title of the employee
+          - name: BIRTHDATE
+            description: birthdate of the employee
+          - name: HIREDATE
+            description: date when the employee was hired
+          - name: ADDRESS
+            description: employee's address
+          - name: CITY
+            description: city where the employee is located
+          - name: REGION
+            description: region where the employee is located
+          - name: POSTALCODE
+            description: postal code of the employee's location
+          - name: COUNTRY
+            description: country where the employee is located
+          - name: HOMEPHONE
+            description: employee's home phone number
+          - name: EXTENSION
+            description: employee's phone extension
+          - name: PHOTO
+            description: employee's photo (binary data)
+          - name: NOTES
+            description: additional notes about the employee
+          - name: REPORTSTO
+            description: ID of the employee's supervisor (foreign key)
+            foreign_key:
+              to_table: EMPLOYEE
+              to_column: EMPLOYEEID
+              relationship_type: self-referencing
+          - name: PHOTOPATH
+            description: file path of the employee's photo
+
       - name: EMPLOYEETERRITORY
+        description: raw_employee_territory table
+        columns: 
+          - name: EMPLOYEEID
+            description: primary key for employees
+          - name: TERRITORYID
+            description: foreign key for territory
+            foreign_key:
+              to_table: TERRITORY
+              to_column: TERRITORYID
+              relationship_type: one-to-one
+
       - name: ORDERS
         columns:
-          - name: orderid
+          - name: ORDERID
             description: primary key for orders
+          - name: CUSTOMERID
+            description: id of the customer placing the order (foreign key)
+            foreign_key:
+              to_table: CUSTOMER
+              to_column: CUSTOMERID
+              relationship_type: one-to-one
+          - name: EMPLOYEEID
+            description: id of the employee processing the order (foreign key)
+            foreign_key:
+              to_table: EMPLOYEE
+              to_column: EMPLOYEEID
+              relationship_type: many-to-many
+          - name: ORDERDATE
+            description: date when the order was placed
+          - name: REQUIREDDATE
+            description: date when the order is required
+          - name: SHIPPEDDATE
+            description: date when the order was shipped
+          - name: SHIPVIA
+            description: id of the shipping company (foreign key), used for the order
+            to_table: SHIPPER
+              to_column: SHIPPERID
+              relationship_type: one-to-one
+          - name: FREIGHT
+            description: freight cost of shipping
+          - name: SHIPNAME
+            description: name of the person or company to whom the order should be shipped
+          - name: SHIPADDRESS
+            description: address to which the order should be shipped
+          - name: SHIPCITY
+            description: city to which the order should be shipped
+          - name: SHIPREGION
+            description: region to which the order should be shipped
+          - name: SHIPPOSTALCODE
+            description: postal code to which the order should be shipped
+          - name: SHIPCOUNTRY
+            description: country to which the order should be shipped
+
+
       - name: ORDER_DETAIL
         description: raw_order_detail table
+        columns: 
+          - name: ORDERID
+            description: primary key for ORDER DETAIL
+          - name: PRODUCTID
+            description: product unique identifier (foreign key)
+            to_table: PRODUCT
+              to_column: PRODUCTID
+              relationship_type: one-to-one
+          - name: UNITPRICE
+            description: price per unit of product, at time when the order was placed (USD - discount not included)
+            to_table: PRODUCT
+              to_column: UNITPRICE
+              relationship_type: one-to-one
+          - name: QUANTITY
+            description: number of units being ordered
+          - name: DISCOUNT
+            description: the discount percentage applied to the price per unit
+          
+            
       - name: PRODUCT
         description: raw product table
         columns:
-          - name: productID
+          - name: PRODUCTID
             description: primary key for product
+          - name: PRODUCTNAME
+            description: name of the product
+          - name: SUPPLIERID
+            description: identifier of the suppler (foreign key)
+            to_table: SUPPLIER
+              to_column: SUPPLIERID
+              relationship_type: one-to-one
+              
+
       - name: REGION
         description: raw region table
       - name: SHIPPER
