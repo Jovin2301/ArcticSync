@@ -204,11 +204,51 @@ sources:
 
       - name: SHIPPER
         description: raw shipper table
-        
+        columns:
+          - name: SHIPPERID
+            description: primary key for each shipper
+          - name: COMPANYNAME
+            description: name of the shipping company
+          - name: PHONE
+            description: company's phone number
       - name: SUPPLIER
         description: raw supplier table
+        columns:
+          - name: SUPPLIERID
+            description: primary key for each supplier 
+          - name: COMPANYNAME
+            description: name of the supplier's company
+          - name: CONTACTNAME
+            description: name of the contact person
+          - name: CONTACTTITLE
+            description: title of the contact person
+          - name: ADDRESS
+            description: supplier's address
+          - name: CITY
+            description: city where the supplier is located
+          - name: REGION 
+            description: region where the supplier is lcoated
+          - name: COUNTRY
+            description: country where the supplier is located
+          - name: PHONE
+            description: supplier's phone number
+          - name: FAX
+            description: supplier's fax number
+          - name: HOMEPAGE
+            description: supplier's homepage URL
+
       - name: TERRITORY
         description: raw territory table
+        columns:
+          - name: TERRITORYID
+            description: primary key for territory
+          - name: TERRITORYDESCRIPTION
+            description: description of the territory
+          - name: REGIONID
+            description: identifier of the region to which the territory belongs (foreign key)
+            to_table: REGION
+              to_column: REGIONID
+              relationship_type: one-to-one
 
       - name: FRESH_ORDERS
         description: fresh orders to be appended into ORDERS table
