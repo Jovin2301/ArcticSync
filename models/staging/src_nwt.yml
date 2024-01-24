@@ -42,6 +42,25 @@ sources:
             
       - name: EMPLOYEE
         description: raw_employees table
+        columns:
+          - name: EMPLOYEEID
+            description: primary key of the employee
+          - name: LASTNAME
+            description: last name of the employee
+          - name: FIRSTNAME
+            description: first name of the employee
+          - name: TITLE
+            description: job title of the employee
+          - name: TITLEOFCOURTESY
+            description: courtesy title of the employee
+          - name: BIRTHDATE
+            description: birthdate of the employee
+          - name: HIREDATE
+            description: date when the employee was hired
+          - name: ADDRESS
+            description: employee's address
+          - name: CITY
+            description: city where the employee is located
       - name: EMPLOYEETERRITORY
       - name: ORDERS
         columns:
