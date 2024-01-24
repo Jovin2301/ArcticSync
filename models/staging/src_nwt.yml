@@ -112,6 +112,17 @@ sources:
               to_table: EMPLOYEE
               to_column: EMPLOYEEID
               relationship_type: many-to-many
+          - name: ORDERDATE
+            description: date when the order was placed
+          - name: REQUIREDDATE
+            description: date when the order is required
+          - name: SHIPPEDDATE
+            description: date when the order was shipped
+          - name: SHIPVIA
+            description: id of the shipping company (foreign key), used for the order
+            to_table: SHIPPER
+              to_column: SHIPPERID
+              relationship_type: one-to-one
 
 
       - name: ORDER_DETAIL
