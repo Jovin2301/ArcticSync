@@ -120,7 +120,8 @@ sources:
             description: date when the order was shipped
           - name: SHIPVIA
             description: id of the shipping company (foreign key), used for the order
-            to_table: SHIPPER
+            foreign_key:
+              to_table: SHIPPER
               to_column: SHIPPERID
               relationship_type: one-to-one
           - name: FREIGHT
@@ -146,12 +147,14 @@ sources:
             description: primary key for ORDER DETAIL
           - name: PRODUCTID
             description: product unique identifier (foreign key)
-            to_table: PRODUCT
+            foreign_key:
+              to_table: PRODUCT
               to_column: PRODUCTID
               relationship_type: one-to-one
           - name: UNITPRICE
             description: price per unit of product, at time when the order was placed (USD - discount not included)
-            to_table: PRODUCT
+            foreign_key:
+              to_table: PRODUCT
               to_column: UNITPRICE
               relationship_type: one-to-one
           - name: QUANTITY
@@ -169,19 +172,22 @@ sources:
             description: name of the product
           - name: SUPPLIERID
             description: identifier of the suppler (foreign key)
-            to_table: SUPPLIER
+            foreign_key:
+              to_table: SUPPLIER
               to_column: SUPPLIERID
               relationship_type: one-to-one
           - name: CATEGORYID`
             description: identifier of the category (foreign key) the product belongs to
-            to_table: CATEGORY
+            foreign_key:
+              to_table: CATEGORY
               to_column: CATEGORYID
               relationship_type: one-to-one
           - name: QUANTITYPERUNIT
             description: quantity of the product per unit
           - name: UNITPRICE
             description: price per unit of the product in USD
-            to_table: ORDER_DETAIL
+            foreign_key:
+              to_table: ORDER_DETAIL
               to_column: UNITPRICE
               relationship_type: one-to-one
           - name: UNITSINSTOCK
@@ -246,7 +252,8 @@ sources:
             description: description of the territory
           - name: REGIONID
             description: identifier of the region to which the territory belongs (foreign key)
-            to_table: REGION
+            foreign_key:
+              to_table: REGION
               to_column: REGIONID
               relationship_type: one-to-one
 
