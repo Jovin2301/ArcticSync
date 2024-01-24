@@ -8,7 +8,7 @@ CREATE OR REPLACE PROCEDURE GetOrderDetails(orderId STRING)
     EXECUTE AS CALLER
 AS
 $$
-    var capturedOrderId = orderId;  // Capture orderId in a separate variable
+    var capturedOrderId = orderId;  // Capture orderId outside the try-catch block
 
     try {
         // Use a parameterized query to avoid SQL injection
@@ -17,7 +17,7 @@ $$
         // Use the same name in the binds array
         var statement1 = snowflake.createStatement({
             sqlText: sql_command,
-            binds: { orderId: capturedOrderId }  // Use the captured variable with the same name
+            binds: { orderId: capturedOrderId }  // Use capturedOrderId
         });
 
         // Executing the statement and fetch results
@@ -35,6 +35,8 @@ $$
         throw err;
     }
 $$;
+
+
 
 CALL GetOrderDetails('10248');
 
