@@ -153,6 +153,7 @@ sources:
               relationship_type: one-to-one
           - name: UNITPRICE
             description: price per unit of product, at time when the order was placed (USD - discount not included)
+            foreign_key:
               to_table: PRODUCT
               to_column: UNITPRICE
               relationship_type: one-to-one
