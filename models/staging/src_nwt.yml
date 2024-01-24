@@ -169,19 +169,19 @@ sources:
             description: name of the product
           - name: SUPPLIERID
             description: identifier of the suppler (foreign key)
-            to_table: SUPPLIER
+              to_table: SUPPLIER
               to_column: SUPPLIERID
               relationship_type: one-to-one
           - name: CATEGORYID`
             description: identifier of the category (foreign key) the product belongs to
-            to_table: CATEGORY
+              to_table: CATEGORY
               to_column: CATEGORYID
               relationship_type: one-to-one
           - name: QUANTITYPERUNIT
             description: quantity of the product per unit
           - name: UNITPRICE
             description: price per unit of the product in USD
-            to_table: ORDER_DETAIL
+              to_table: ORDER_DETAIL
               to_column: UNITPRICE
               relationship_type: one-to-one
           - name: UNITSINSTOCK
