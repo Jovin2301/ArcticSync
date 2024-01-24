@@ -9,33 +9,32 @@ CREATE OR REPLACE PROCEDURE GetOrderDetails(orderId STRING)
 AS
 $$
     try {
-        // we can use a parameterized query, 
-        //avoid SQL injection
+        // Use a parameterized query to avoid SQL injection
         var sql_command = "SELECT * FROM RAW_ORDER WHERE ORDERID = :orderId";
 
         // Use the same name in the binds array
         var statement1 = snowflake.createStatement({
             sqlText: sql_command,
-            binds: { orderId: orderId }  // Use an object with named parameter
+            binds: { orderId: orderId }  // Use an object with a named parameter
         });
 
-        
-        //executing the statement and fetch results
+        // Executing the statement and fetch results
         var resultSet1 = statement1.execute();
         var result = resultSet1.fetchAll({format: 'json'});
 
-        // lastly, we return the results
+        // Lastly, we return the results
         return result;
 
     } catch (err) {
-        // Log the error specifically
-        snowflake.execute("INSERT INTO error_log (error_message) VALUES (:1)", [err.message || 'Error message not available']);
+        var errorMessage = err.message || 'Error message not available';
+        snowflake.execute("INSERT INTO error_log (error_message) VALUES (:1)", [errorMessage]);
 
-        // rethrow the error, propagating it to the caller
+        // Rethrow the error, propagating it to the caller
         throw err;
     }
 $$;
-CALL GetOrderDetails('1');
+CALL GetOrderDetails('10248');
+
 
 
 
