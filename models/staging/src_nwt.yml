@@ -98,8 +98,16 @@ sources:
 
       - name: ORDERS
         columns:
-          - name: orderid
+          - name: ORDERID
             description: primary key for orders
+          - name: CUSTOMERID
+            description: id of the customer placing the order (foreign key)
+            foreign_key:
+              to_table: CUSTOMER
+              to_column: CUSTOMERID
+              relationship_type: one-to-one
+
+
       - name: ORDER_DETAIL
         description: raw_order_detail table
       - name: PRODUCT
