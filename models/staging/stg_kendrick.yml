@@ -31,16 +31,8 @@ models:
         description: The date when the order was shipped
       - name: REQUIREDDATE
         description: The date where the order is required	to be handed to the customer
-      # - name: AVERAGE_UNIT_PRICE
-      #   description: The average unit price of the product
-      # - name: TOTAL_UNIT_PRICE
-      #   description: Total sum of product price
-      # - name: TOTAL_DISCOUNTED_PRICE
-      #   description: Total discounted product price
       - name: REORDER
         description: '{{ doc("Reorder")}}'
-      # - name: TOTAL_QUANTITY
-      #   description: The total number of quantity purchased
       - name: CATEGORYID
         description: The composite primary key for stg_kendrick
       - name: CATEGORYNAME
@@ -55,6 +47,7 @@ models:
         description: '{{ doc("delivery_performance")}}'
       - name: PROFIT_MARGIN
         description: The amount of profit earned for each margin
-      
+      - name: ON_TIME_DELIVERY_RATE
+        description: The rate on on time delivery
 
 

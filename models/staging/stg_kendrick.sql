@@ -35,6 +35,9 @@ SELECT
     WHEN DATEDIFF('day', o.shippeddate, o.requireddate) >= 0 THEN 1
     ELSE 0
   END AS on_time_delivery,
+    
+  -- SUM(on_time_delivery) AS on_time_deliveries,
+  -- SUM(on_time_delivery) / COUNT(DISTINCT od.orderid) AS on_time_delivery_rate,
 
   -- from raw_category (product detail)
   c.categoryID,
@@ -62,3 +65,10 @@ LEFT JOIN
   {{ ref('raw_order') }} as o ON od.orderid = o.orderid -- Join the "order" table
 LEFT JOIN
   {{ ref('raw_category') }} as c ON p.categoryID = c.categoryID
+
+-- GROUP BY -- necessary as count distinct used
+--   s.supplierid,
+--   s.PRODUCTID,
+--   od.orderid,
+--   o.CUSTOMERID,
+--   c.categoryID
