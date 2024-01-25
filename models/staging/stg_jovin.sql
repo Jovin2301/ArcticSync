@@ -43,31 +43,31 @@ categoryName,
 
 
 
--- FROM {{ ref ('raw_order')}} as o
--- LEFT JOIN {{ ref('raw_order_details')}} as d
+FROM {{ ref ('raw_order')}} as o
+LEFT JOIN {{ ref('raw_order_details')}} as d
+ON o.orderID = d.orderID
+LEFT JOIN {{ ref('raw_product')}} as p
+ON d.productID = p.productID 
+LEFT JOIN {{ ref('raw_category')}} as c
+ON p.categoryID = c.categoryID
+LEFT JOIN {{ ref('raw_employee')}} as e
+ON o.employeeID = e.employeeID
+LEFT JOIN {{ ref('raw_customer')}} as cr
+ON o.customerID = cr.customerID
+
+
+-- FROM Assignment2.NWT.raw_order as o
+-- LEFT JOIN Assignment2.NWT.raw_order_details as d
 -- ON o.orderID = d.orderID
--- LEFT JOIN {{ ref('raw_product')}} as p
+-- LEFT JOIN Assignment2.NWT.raw_product as p
 -- ON d.productID = p.productID 
--- LEFT JOIN {{ ref('raw_category')}} as c
+-- LEFT JOIN Assignment2.NWT.raw_category as c
 -- ON p.categoryID = c.categoryID
--- LEFT JOIN {{ ref('raw_employee')}} as e
+-- LEFT JOIN Assignment2.NWT.raw_employee as e
 -- ON o.employeeID = e.employeeID
--- LEFT JOIN {{ ref('raw_customer')}} as cr
+-- LEFT JOIN Assignment2.NWT.raw_customer as cr
 -- ON o.customerID = cr.customerID
 
-
-FROM Assignment2.NWT.raw_order as o
-LEFT JOIN Assignment2.NWT.raw_order_details as d
-ON o.orderID = d.orderID
-LEFT JOIN Assignment2.NWT.raw_product as p
-ON d.productID = p.productID 
-LEFT JOIN Assignment2.NWT.raw_category as c
-ON p.categoryID = c.categoryID
-LEFT JOIN Assignment2.NWT.raw_employee as e
-ON o.employeeID = e.employeeID
-LEFT JOIN Assignment2.NWT.raw_customer as cr
-ON o.customerID = cr.customerID
---select * from stg_jovin
 GROUP BY 
 o.orderID,
 d.orderID,
@@ -95,7 +95,7 @@ totalSales,
 profitMargin,
 discountGiven
 
-select * from stg_jovin
-
+--select * from stg_jovin
+--select * from raw_order
 
 --DROP VIEW NWT.stg_jovin
