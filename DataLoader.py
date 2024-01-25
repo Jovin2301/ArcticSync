@@ -77,7 +77,7 @@ try:
         FILE_FORMAT=(SKIP_HEADER=1, FIELD_DELIMITER=',')
     """)
 
-    csvins = con.cursor().execute("SELECT * FROM FRESH_ORDERS_DETAILS").fetchall()
+    csvins = con.cursor().execute(f"SELECT * FROM {insert}").fetchall()
     print(csvins)
 
     print("Process Successful!")
