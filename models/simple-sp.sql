@@ -1,53 +1,80 @@
--- source from: https://www.youtube.com/watch?v=CsH2sB6gwlw&ab_channel=DataEngineeringSimplified
+-- select * from raw_order
+-- where ORDERID = '10248'
 
--- query for order details, given order ID
+---------------------------------------------------------------
+-- we can create a view, if we want to return more columns.
+-- right now, we only query one column.
+-- however in theory, stored procedure (SP) is more useful for more complex
+-- queries, and if we insert data into inner joined tables.\
 
-create or replace procedure GetOrderDetails(orderId string)
-    returns variant
-    language javascript
-    execute as caller
-as
+-- CURRENT VERSION
+-----------------------------------------------------------------
+CREATE OR REPLACE PROCEDURE GET_ORDER_DETAILS(ORDERID STRING)
+RETURNS DATE
+LANGUAGE SQL
+EXECUTE AS CALLER
+AS
+'
+BEGIN
+RETURN (SELECT ORDERDATE FROM RAW_ORDER WHERE ORDERID = :ORDERID);
+END
+';
 
-$$
-    try {
-        var sql_command = 'select * from raw_order where orderId = :1'
+-- Replace '10248' with the desired ORDERID
+SET ORDERID = '10248';
 
-        var statement1 = snowflake.createStatement({
-            sqlText: sql_command,
-            binds: [orderId]
+-- Declare a variable to store the result
+DECLARE RESULT_TABLE VARIANT;
 
-    });
+-- Execute the stored procedure
+CALL GET_ORDER_DETAILS(:ORDERID) INTO :RESULT_TABLE;
 
-        var resultsSet1 = statement1.execute();
-        var result = resultSet1.fetchAll({format:'json'});
-
-        return result;
-
-    }
-    catch (err) {
-        var errorMessage = err.message || 'Error message not available';
-        snowflake.execute('insert into error_log (error_message) values (:1)', [errorMessage]);
-        
-        throw err;
-    }
-
-$$;
-CALL GetOrderDetails('10248');
+-- Fetch and display the result
+SELECT * FROM TABLE(RESULT_SCAN(:RESULT_TABLE));
 
 
+CALL GET_ORDER_DETAILS('10248')
 
 
--- simple query to query all employees
--- -------------------------------------------------------
--- CREATE OR REPLACE PROCEDURE SelectAllEmployees()
---     RETURNS STRING
---     LANGUAGE JAVASCRIPT
---     EXECUTE AS CALLER
+-- JAVASCRIPT VERSION
+-- ----------------------------------------
+-- create or replace procedure GetOrderDetails(orderId string)
+--     returns variant
+--     language javascript
+--     execute as caller
+-- as
+-- $$
+--     try {
+--         var resultSet1 = snowflake.execute('select * from raw_order where ORDERID = :1', [ORDERID]);
+--         var result = resultSet1.fetchAll({format:'json'});
+--         return result;
+--     }
+--     catch (err) {
+--         var errorMessage = err.message || 'Error message not available';
+--         snowflake.execute('insert into error_log (error_message) values (:1)', [errorMessage]);
+--         throw err;
+--     }
+-- $$;
+
+-- ALTERNATE SQL VERSION
+---------------------------------------------
+-- CREATE OR REPLACE PROCEDURE ASSIGNMENT2.NWT.GETORDERDETAILS("ORDERID" VARCHAR)
+-- RETURNS VARIANT
+-- LANGUAGE SQL
+-- EXECUTE AS CALLER
 -- AS
 -- $$
---     var sql_command = "SELECT * FROM Employee;";
---     var statement1 = snowflake.createStatement({sqlText: sql_command});
---     var resultSet1 = statement1.execute();
---     return resultSet1;
+-- BEGIN
+--     DECLARE result VARIANT;
+    
+--     -- Execute the SQL query directly
+--     SELECT OBJECT_INSERT(OBJECT_CONSTRUCT(*), 'custom_field', 'custom_value')
+--     INTO :result
+--     FROM raw_order
+--     WHERE ORDERID = :ORDERID;
+
+--     -- Return the result
+--     RETURN :result;
+-- END;
 -- $$;
--- CALL SelectAllEmployees();
+
