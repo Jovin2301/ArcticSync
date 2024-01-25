@@ -2,42 +2,36 @@
 
 -- query for order details, given order ID
 
-CREATE OR REPLACE PROCEDURE GetOrderDetails(orderId STRING)
-    RETURNS VARIANT
-    LANGUAGE JAVASCRIPT
-    EXECUTE AS CALLER
-AS
+create or replace procedure GetOrderDetails(orderId string)
+    returns variant
+    language javascript
+    execute as caller
+as
+
 $$
-    var capturedOrderId = orderId;  // Capture orderId outside the try-catch block
-
     try {
-        // Use a parameterized query to avoid SQL injection
-        var sql_command = "SELECT * FROM RAW_ORDER WHERE ORDERID = :orderId";
+        var sql_command = 'select * from raw_order where orderId = :1'
 
-        // Use the same name in the binds array
         var statement1 = snowflake.createStatement({
             sqlText: sql_command,
-            binds: { orderId: capturedOrderId }  // Use capturedOrderId
-        });
+            binds: [orderId]
 
-        // Executing the statement and fetch results
-        var resultSet1 = statement1.execute();
-        var result = resultSet1.fetchAll({format: 'json'});
+    });
 
-        // Lastly, we return the results
+        var resultsSet1 = statement1.execute();
+        var result = resultSet1.fetchAll({format:'json'});
+
         return result;
 
-    } catch (err) {
-        // Log the error specifically, providing details
+    }
+    catch (err) {
         var errorMessage = err.message || 'Error message not available';
-        snowflake.execute("INSERT INTO error_log (error_message, order_id) VALUES (:1, :2)", [errorMessage, capturedOrderId]);
-        // Rethrow the error, propagating it to the caller
+        snowflake.execute('insert into error_log (error_message) values (:1)', [errorMessage]);
+        
         throw err;
     }
+
 $$;
-
-
-
 CALL GetOrderDetails('10248');
 
 
