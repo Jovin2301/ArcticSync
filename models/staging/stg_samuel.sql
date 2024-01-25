@@ -3,39 +3,65 @@
 ) }}
 
 select
-    -- from raw_employee
-    e.EmployeeId,
-    et.TerritoryId as EmployeeTerritoryId,  -- Qualified to avoid ambiguity
+--from raw_employeeTerridtory
+e.EmployeeId,
+t.TerritoryId,
 
-    -- from raw_territory
-    t.TerritoryId,
-    t.TerritoryDescription,
+--from raw_territory
+TerritoryId,
+r.RegionId,
+TerritoryDescription,
 
-    -- from raw_region
-    r.RegionId,
-    r.RegionDescription,
+--from raw_region
+RegionId,
+RegionDescription,
 
-    -- from raw_employee
-    e.LastName,
-    e.FirstName,
-    -- ... (other employee columns)
+--from raw_employee
+EmployeeId,
+LastName,
+FirstName,
+Title,
+TitleOfCourtesy,
+BirthDate,
+HireDate,
+Address, 
+City,
+Region,
+PostalCode,
+Country,
+HomePhone,
+Extension,
+Photo,
+Notes, ReportsTo, PhotoPath,
 
-    -- from raw_order
-    o.CustomerId,
-    -- ... (other order columns)
+-- from raw_order
+CustomerId,
+OrderDate,
+RequiredDate,
+ShippedDate,
+ShipVia,
+Freight,
+ShipName,
+ShipAddress,
+ShipCity,
+ShipRegion,
+ShipPostalCode,
+ShipCountry,
 
-    -- from raw_order_details
-    od.ProductId,
-    -- ... (other order details columns)
+-- from raw_order_details
+ProductId,
+UnitPrice,
+Quantity,
+Discount
 
 from {{ ref('raw_employee') }} as e
 left join {{ ref('raw_employee_territory') }} as et
-    on e.EmployeeId = et.EmployeeId
+on e.EmployeeId = et.EmployeeId
 left join {{ ref('raw_region') }} as r
-    on r.RegionId = t.RegionId  -- Assuming correct join condition
+on r.RegionId = t.RegionId
 left join {{ ref('raw_territory') }} as t
-    on t.TerritoryId = et.TerritoryId  -- Corrected to reference et.TerritoryId
+on t.TerritoryId = et.TerritoryId
 left join {{ ref('raw_order')}} as o
-    on o.EmployeeId = e.EmployeeId
+on o.EmployeeId = e.EmployeeId
 left join {{ ref('raw_order_details')}} as od
-    on od.OrderId = o.OrderId
+on od.OrderId = o.OrderId
