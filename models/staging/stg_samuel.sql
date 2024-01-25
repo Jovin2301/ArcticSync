@@ -57,10 +57,10 @@ Discount
 from {{ ref('raw_employee') }} as e
 left join {{ ref('raw_employee_territory') }} as et
 on e.EmployeeId = et.EmployeeId
-left join {{ ref('raw_region') }} as r
-on r.RegionId = t.RegionId
 left join {{ ref('raw_territory') }} as t
 on t.TerritoryId = et.TerritoryId
+left join {{ ref('raw_region') }} as r
+on r.RegionId = t.RegionId
 left join {{ ref('raw_order')}} as o
 on o.EmployeeId = e.EmployeeId
 left join {{ ref('raw_order_details')}} as od
