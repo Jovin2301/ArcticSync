@@ -66,9 +66,24 @@ LEFT JOIN
 LEFT JOIN
   {{ ref('raw_category') }} as c ON p.categoryID = c.categoryID
 
--- GROUP BY -- necessary as count distinct used
---   s.supplierid,
---   s.PRODUCTID,
---   od.orderid,
---   o.CUSTOMERID,
---   c.categoryID
+GROUP BY 
+  s.supplierid,
+  s.companyName,
+  s.city,
+  s.country,
+  s.contactName,
+  s.contactTitle,
+  p.productid,
+  p.productname,
+  p.discontinued,
+  p.reorderLevel,
+  p.unitsInStock,
+  p.UnitCost,
+  od.orderid,
+  o.shippedDate,
+  o.requireddate,
+  c.categoryID,
+  c.categoryName,
+  od.unitprice,
+  od.quantity,
+  od.discount
