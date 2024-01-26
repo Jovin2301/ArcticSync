@@ -68,8 +68,8 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('raw_order')
-              field: ORDERID
+                to: ref('raw_order')
+                field: ORDERID
       - name: PRODUCTID
         tests:
           - not_null
@@ -143,15 +143,15 @@ models:
         tests:
           - not_null
           - relationships:
-            to: ref('raw_supplier')
-            field: SupplierID
+              to: ref('raw_supplier')
+              field: SupplierID
 
       - name: CATEGORYID
         tests:
           - not_null
           - relationships:
-            to: ref('raw_category')
-            field: CategoryID
+              to: ref('raw_category')
+              field: CategoryID
 
       - name: QUANTITYPERUNIT
         tests:
