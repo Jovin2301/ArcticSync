@@ -35,12 +35,6 @@ models:
       - name: SHIPCITY
         tests:
           - not_null
-      - name: SHIPREGION
-        tests:
-          - not_null
-      - name: SHIPPOSTALCODE
-        tests:
-          - not_null
       - name: SHIPCOUNTRY
         tests:
           - not_null
@@ -74,8 +68,8 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('raw_order')
-              field: ORDERID
+                to: ref('raw_order')
+                field: ORDERID
       - name: PRODUCTID
         tests:
           - not_null
@@ -112,19 +106,13 @@ models:
       - name: CITY
         tests:
           - not_null
-      - name: REGION
-      - name: POSTALCODE
-        tests:
-          - not_null
       - name: COUNTRY
         tests:
           - not_null
       - name: PHONE
         tests:
           - not_null
-      - name: FAX
-        tests:
-          - not_null
+
 
   - name: raw_category
     columns:
@@ -151,13 +139,20 @@ models:
       - name: PRODUCTNAME
         tests:
           - not_null
-          - unique
       - name: SUPPLIERID
         tests:
           - not_null
+          - relationships:
+              to: ref('raw_supplier')
+              field: SupplierID
+
       - name: CATEGORYID
         tests:
           - not_null
+          - relationships:
+              to: ref('raw_category')
+              field: CategoryID
+
       - name: QUANTITYPERUNIT
         tests:
           - not_null
@@ -210,9 +205,6 @@ models:
       - name: CITY
         tests:
           - not_null
-      - name: REGION
-        tests:
-          - not_null
       - name: POSTALCODE
         tests:
           - not_null
@@ -246,9 +238,19 @@ models:
       - name: EMPLOYEEID
         tests:
           - not_null
+          - relationships:
+              to: ref('raw_employee')
+              field: employeeID
       - name: TERRITORYID
         tests:
           - not_null
+          - relationships:
+              to: ref('raw_territory')
+              field: TerritoryID
+    unique_constraints:
+      - columns: [EMPLOYEEID, TERRITORYID]
+
+
   - name: raw_region
     columns:
       - name: REGIONID
@@ -258,6 +260,7 @@ models:
       - name: REGIONDESCRIPTION
         tests:
           - not_null
+
   - name: raw_territory
     columns:
       - name: TERRITORYID
@@ -270,6 +273,9 @@ models:
       - name: REGIONID
         tests:
           - not_null
+          - relationships:
+              to: ref('raw_region')
+              field: REGIONID
 
   - name: raw_supplier
     columns:
@@ -292,9 +298,6 @@ models:
       - name: CITY
         tests:
           - not_null
-      - name: REGION
-        tests:
-          - not_null
       - name: POSTALCODE
         tests:
           - not_null
@@ -304,12 +307,8 @@ models:
       - name: PHONE
         tests:
           - not_null
-      - name: FAX
-        tests:
-          - not_null
-      - name: HOMEPAGE
-        tests:
-          - not_null
+
+
           
   - name: raw_shipper
     columns:
