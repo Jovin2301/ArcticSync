@@ -1,5 +1,6 @@
 -- to show and find the profit margin of the different suppliers. This is extremely crucial as the company (bar chart)
 -- would want to make profit. Thus, identifying the profitable suppliers would be key in a sustaining a successful business
+{{ config(  materialized='table') }}
 SELECT
   --s.companyName,
   supplierid,

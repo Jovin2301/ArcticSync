@@ -1,6 +1,7 @@
 --map plot for dominating supplying company
 -- to show the location of the different suppliers and the number of stocks they supply
 -- to identify the different location demands and how trustworthy the suppliers are
+{{ config(  materialized='table') }}
 SELECT
   supplierid,
   categoryID,
@@ -14,7 +15,7 @@ SELECT
   -- Sum of quantities for each supplier
   SUM(quantity) AS total_quantity
 
-FROM STG_KENDRICK
+FROM {{ ref('stg_kendrick') }}
 GROUP BY
   supplierid,
   categoryID,
