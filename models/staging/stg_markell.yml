@@ -1,0 +1,56 @@
+models:
+  - name: stg_markell
+    description: Temporary dataset compromising of tables 'raw_orders', 'raw_employees' and 'raw_order_detail', 'raw_customers' and 'raw_product' from schema. 
+    columns:
+      - name: EmployeeID
+        description: Employee Identifier, Composite Key of dataset
+      - name: OrderID
+        description: Order Identifer, Composite Key of dataset
+      - name: CustomerID
+        description: Customer Identifier, Composite Key of dataset
+      - name: ProductID
+        description: Product Identifier, Composite Key of dataset
+
+      - name: FirstName 
+        description: First name of employee
+      - name: LastName
+        description: Last name of employee
+      - name: Title
+        description: '{{ doc("title") }}'
+      - name: HireDate
+        description: Date when employee was hired
+      - name: City
+        description: City where employee is based
+      - name: Country
+        description: Country where employee is based
+      - name: Notes
+        description: Additional Notes about employee.
+      - name: ReportsTo
+        description: ID of employees' supervisor. Null value for Andrew Fuller was replaced with his own ID (2) as he has the highest position (refer to 'Title' documentation)
+     
+      - name: OrderDate
+        description: Date when order was placed. Year values were 0096, 0097 and 0098, which were fixed to 1996, 1997 and 1998 respectively
+      - name: Freight
+        description: Cost of shipping
+
+      - name: UnitPrice
+        description: Price of one unit of product at the time the order was placed (USD and not including discount)
+      - name: Quantity
+        description: Number of units ordered
+      - name: Discount
+        description: Discount percentage applied to price per unit
+
+      - name: Unitcost
+        description: This is the newly appended column from CI/CD, contains cost of one unit of product
+
+      - name: OrderPrice
+        description: Price of entire order (UnitPrice x Quantity)
+
+      - name: DiscountedOrderPrice
+        description: Price of entire order with discount applied (UnitPrice x Quantity x (1- Discount))
+
+      - name: OrderCost
+        description: Cost of entire order (UnitCost * Quantity + Freight)
+
+      - name: Profit
+        description: Profit of order (DiscountedOrderPrice - OrderCost)
