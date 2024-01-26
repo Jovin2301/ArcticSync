@@ -21,7 +21,7 @@ models:
       - name: reportsTo
         description: Employees will report to the highest management of the country they work at
       - name: categoryName
-        description: The category name of the products that were purchased by the customer
+        description: '{{ doc("categoryname")}}'
       - name: costPrice
         description: The price of a product that the company purchased
       - name: productPrice
