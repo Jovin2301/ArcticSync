@@ -2,7 +2,7 @@
 select 
 EMPLOYEEID,
 FIRSTNAME,
-COUNT(DISTINCT SHIPCOUNTRY) AS CountryCount
+COUNT(DISTINCT CustomerCountry) AS CountryCount
 FROM {{ ref('stg_markell') }}
 GROUP BY 
 EMPLOYEEID, FIRSTNAME
