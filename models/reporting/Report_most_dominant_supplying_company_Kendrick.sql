@@ -15,7 +15,7 @@ SELECT
   -- Sum of quantities for each supplier
   SUM(quantity) AS total_quantity
 
-FROM STG_KENDRICK
+FROM {{ ref('stg_kendrick') }}
 GROUP BY
   supplierid,
   categoryID,

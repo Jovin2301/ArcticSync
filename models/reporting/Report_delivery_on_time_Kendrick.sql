@@ -9,7 +9,7 @@ SELECT
   COUNT(DISTINCT orderid) AS total_deliveries,
   SUM(on_time_delivery) AS on_time_deliveries,
   SUM(on_time_delivery) / COUNT(DISTINCT orderid) AS on_time_delivery_rate
-FROM stg_Kendrick
+FROM {{ ref('stg_kendrick') }}
   
 GROUP BY
   supplierid, 

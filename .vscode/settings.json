@@ -14,8 +14,8 @@
             "driver": "Snowflake",
             "name": "Asg2",
             "account": "qd77687.ap-southeast-1",
-            "username": "groupaccount1",
-            "password": "Groupaccount1",
+            "username": "SAMUEL_KOH",
+            "password": "Paper666!!!!",
             "database": "ASSIGNMENT2",
             "warehouse": "NWT_WAREHOUSE"
         }

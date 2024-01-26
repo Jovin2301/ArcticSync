@@ -8,7 +8,7 @@ SELECT
   categoryName,
   COUNT(DISTINCT productid) AS total_discontinued_products
 FROM
-  STG_KENDRICK
+  {{ ref('stg_kendrick') }}
 WHERE
   discontinued = 1
 GROUP BY
