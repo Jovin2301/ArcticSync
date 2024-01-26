@@ -9,7 +9,7 @@ SELECT
     shippeddate,
     SUM(UNITSINSTOCK) AS TotalUnitsInStock,
     SUM(REORDER) AS TotalReorders
-FROM STG_KENDRICK
+FROM {{ ref('stg_kendrick') }}
 WHERE
     discontinued = 0
 GROUP BY 
