@@ -2,9 +2,8 @@
 
 SELECT * FROM {{ source('NWT', 'CATEGORY') }}
 
-<<<<<<< HEAD
 --select * from raw_category
-=======
+
 /* Issue lies in having duplicated values for CATEGORY ID in 
 raw_category. Hence, we query the duplicated values.
 This shows the CATEGORY ID values that have more than one
@@ -18,4 +17,4 @@ HAVING COUNT(*) > 1; */
 -- CREATE TABLE raw_category AS
 -- SELECT DISTINCT * FROM raw_category;
 -- ALTER TABLE raw_category ADD UNIQUE (categoryID);
->>>>>>> 8ec5dc234f1b97961af0fd0db7e32238d6d5ea40
+

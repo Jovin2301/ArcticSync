@@ -22,9 +22,7 @@ select * from raw_order where SHIPPEDDATE is null
 <<<<<<< HEAD
 select * from raw_order*/
 
-=======
-select * from raw_order */
->>>>>>> 8ec5dc234f1b97961af0fd0db7e32238d6d5ea40
+
 
 {{ config (materialized='table')}}
 
@@ -36,8 +34,4 @@ FROM {{ ref ('fresh_orders') }}
 WHERE CAST(ORDERID AS BIGINT) > (SELECT MAX(CAST(ORDERID AS BIGINT))  FROM {{this}})
 {% endif %}
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 8ec5dc234f1b97961af0fd0db7e32238d6d5ea40
