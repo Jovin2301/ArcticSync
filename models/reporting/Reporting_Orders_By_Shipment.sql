@@ -1,4 +1,4 @@
-/*
+
 -- count of orders shipped by shipment types
 
 SELECT
@@ -7,4 +7,4 @@ ORDERID,
 CUSTOMERID,
 COMPANYNAME
 
-from {{ ref('stg_faris') }}*/
+from {{ ref('stg_faris') }}
