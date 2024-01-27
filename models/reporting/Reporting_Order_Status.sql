@@ -1,4 +1,4 @@
-SELECT
+/*SELECT
 ORDERDATE,
 SHIPPEDDATE,
 REQUIREDDATE,
@@ -6,4 +6,4 @@ SHIPVIA,
 ORDERID,
 CUSTOMERID
 
-from {{ ref('stg_faris') }}
+from {{ ref('stg_faris') }}*/
