@@ -1,4 +1,4 @@
-/*SELECT
+SELECT
 
 SHIPCOUNTRY,
 SHIPCITY,
@@ -13,4 +13,4 @@ COUNTRY,
 CUSTOMERID,
 ORDERID
 
-from {{ ref('stg_faris') }}*/
+from {{ ref('stg_faris') }}
