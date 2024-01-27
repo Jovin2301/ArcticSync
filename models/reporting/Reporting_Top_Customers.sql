@@ -1,4 +1,4 @@
-SELECT
+/*SELECT
 SHIPNAME,
 COMPANYNAME,
 CONTACTNAME,
@@ -7,4 +7,4 @@ CUSTOMERID,
 ORDERID,
 ProductName
 
-from {{ ref('stg_faris') }}
+from {{ ref('stg_faris') }}*/
