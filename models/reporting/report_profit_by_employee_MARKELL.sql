@@ -1,6 +1,6 @@
-/*select 
+select 
 EMPLOYEEID,
 FIRSTNAME,
 SUM(Profit) As ProfitByEmployee
 FROM {{ ref('stg_markell') }}
-GROUP BY EMPLOYEEID, FIRSTNAME*/
+GROUP BY EMPLOYEEID, FIRSTNAME
