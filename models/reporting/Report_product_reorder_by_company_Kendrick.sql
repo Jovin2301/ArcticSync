@@ -1,6 +1,6 @@
 
 -- could be a card where higher number is good as the product is in demand by supplier
-/*{{ config(  materialized='table') }}
+{{ config(  materialized='table') }}
 SELECT
   companyName,
   shippeddate,
@@ -13,5 +13,3 @@ GROUP BY
   companyName,
   shippeddate
   
-
-*/
