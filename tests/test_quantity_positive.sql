@@ -9,4 +9,4 @@ select
     sum(quantity) as total_quantity
 from order_detail
 group by orderid, productid
-having total_quantity < 0
+having total_quantity <= 0

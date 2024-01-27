@@ -9,4 +9,4 @@ select
     sum(unitprice) as total_up
 from order_detail
 group by orderid, productid -- verifying each row in the table
-having total_up < 0
+having total_up <= 0
