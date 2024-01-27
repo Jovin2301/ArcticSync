@@ -1,6 +1,6 @@
 
 -- could be a card where higher number is bad as the product is supplied by supplier
-/*{{ config(  materialized='table') }}
+{{ config(  materialized='table') }}
 SELECT
   companyName,
   MAX(shippeddate) AS latest_shippeddate,
@@ -16,4 +16,3 @@ GROUP BY
   productid,
   categoryName,
   shippeddate
-*/
