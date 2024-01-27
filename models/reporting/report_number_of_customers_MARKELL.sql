@@ -1,7 +1,8 @@
-select 
+/*select 
 EMPLOYEEID,
 FIRSTNAME,
 COUNT(DISTINCT CUSTOMERID) AS CustomerCount
 FROM {{ ref('stg_markell') }}
 GROUP BY EMPLOYEEID, FIRSTNAME
 
+*/
