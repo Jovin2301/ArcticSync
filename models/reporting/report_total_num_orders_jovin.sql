@@ -1,4 +1,4 @@
-/*SELECT 
+SELECT 
     ORDERID,
     PRODUCTID,
     SUM(QUANTITY) AS QUANTITY
@@ -6,4 +6,4 @@ FROM {{ ref('stg_jovin') }}
 GROUP BY
     ORDERID,
     PRODUCTID,
-    QUANTITY*/
+    QUANTITY
