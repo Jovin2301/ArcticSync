@@ -1,7 +1,7 @@
 --map plot for dominating supplying company
 -- to show the location of the different suppliers and the number of stocks they supply
 -- to identify the different location demands and how trustworthy the suppliers are
-/*{{ config(  materialized='table') }}
+{{ config(  materialized='table') }}
 SELECT
   supplierid,
   categoryID,
@@ -27,4 +27,4 @@ GROUP BY
 ORDER BY
   total_quantity DESC
 --LIMIT 5; ---this can be set in powerbi
-*/
+
