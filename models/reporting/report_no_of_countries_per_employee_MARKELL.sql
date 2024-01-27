@@ -1,4 +1,4 @@
-
+/*
 select 
 EMPLOYEEID,
 FIRSTNAME,
@@ -8,3 +8,4 @@ GROUP BY
 EMPLOYEEID, FIRSTNAME
 
 
+*/
